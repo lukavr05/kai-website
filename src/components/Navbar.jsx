@@ -48,13 +48,13 @@ function Navbar() {
         </Button>
         <Button 
             color='inherit' 
-            href="/music"
-            onClick={() => handleSelect('music')}
+            href="/events"
+            onClick={() => handleSelect('events')}
             sx={{
               fontWeight: selected === 'music' ? 'bold' : 'normal',
             }}
           >
-            Music
+            Events
         </Button>
         <Button 
             color='inherit' 
@@ -65,6 +65,16 @@ function Navbar() {
             }}
           >
             Media
+        </Button>
+        <Button 
+            color='inherit' 
+            href="/portfolio"
+            onClick={() => handleSelect('portfolio')}
+            sx={{
+              fontWeight: selected === 'media' ? 'bold' : 'normal',
+            }}
+          >
+            Portfolio
         </Button>
       </Toolbar>
     </AppBar>
