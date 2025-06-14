@@ -105,6 +105,17 @@ function Navbar() {
           onClick={() => handleSelect(item.id)}
           sx={{
             fontWeight: selected === item.id ? 'bold' : 'normal',
+            height: '100%',
+            borderRadius: 0,
+            minHeight: '64px',
+            px: 2,
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            },
+            ...(selected === item.id && {
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              borderBottom: '3px solid white',
+            })
           }}
         >
           {item.label}
@@ -150,7 +161,8 @@ function Navbar() {
                 primary={item.label}
                 sx={{
                   '& .MuiTypography-root': {
-                    fontWeight: selected === item.id ? 'bold' : 'normal',
+                    fontWeight: selected === item.id ? 'bold' : 'light',
+                    color: 'text.secondary'
                   }
                 }}
               />
@@ -172,6 +184,7 @@ function Navbar() {
                 onClick={() => handleSocialClick(social.url)}
                 sx={{
                   borderRadius: 1,
+                  color: 'text.secondary',
                   '&:hover': {
                     backgroundColor: 'rgba(201, 55, 71, 0.05)',
                   }
