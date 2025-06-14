@@ -12,10 +12,7 @@ import {
 import {
   Email,
   LinkedIn,
-  Twitter,
-  GitHub,
   Instagram,
-  Facebook,
   KeyboardArrowDown
 } from '@mui/icons-material';
 
@@ -70,20 +67,11 @@ function Navbar() {
       sx={{ top: 0, width:'100vw', left: 0 }}
     >
       <Toolbar
-        sx={{ gap: 2,
-            '& button': {
-              textTransform: 'none',
-              borderRadius: '8px',
-              boxShadow: 'none', 
-              '&:hover': {
-                boxShadow: 'none', 
-              },
-            },
-          }}
+        sx={{ gap: 2 }}
       >
         <Box sx={{ flexGrow: 1 }}>
-          <Button 
-              color='inherit' 
+          <Button
+              color='inherit'
               href="/"
               onClick={() => handleSelect('home')}
               sx={{
