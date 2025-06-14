@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -7,13 +7,22 @@ import {
   MenuItem,
   ListItemIcon,
   ListItemText,
-  Box
-} from '@mui/material'
+  Box,
+  Drawer,
+  List,
+  ListItem,
+  ListItemButton,
+  IconButton,
+  Typography,
+  Divider
+} from '@mui/material';
 import {
   Email,
   LinkedIn,
   Instagram,
-  KeyboardArrowDown
+  KeyboardArrowDown,
+  Menu as MenuIcon,
+  Close as CloseIcon
 } from '@mui/icons-material';
 
 function Navbar() {
@@ -22,11 +31,25 @@ function Navbar() {
   });
 
   const [anchorEl, setAnchorEl] = useState(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  
   const open = Boolean(anchorEl);
+
+  // check if browser is in fullscreen mode
+  useEffect(() => {
+    const checkFullscreen = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', checkFullscreen);
+    return () => document.removeEventListener('fullscreenchange', checkFullscreen);
+  }, []);
 
   const handleSelect = (id) => {
     setSelected(id);
     localStorage.setItem('selectedNav', id)
+    setDrawerOpen(false); 
   }
 
   const handleClick = (event) => {
@@ -40,6 +63,10 @@ function Navbar() {
   const handleSocialClick = (url) => {
     window.open(url, '_blank');
     handleClose();
+  };
+
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
   };
 
   const socialLinks = [
@@ -60,113 +87,196 @@ function Navbar() {
     }
   ];
 
-  return (
-    <AppBar 
-      position='sticky' 
-      color='primary'
-      sx={{ top: 0, width:'100vw', left: 0 }}
-    >
-      <Toolbar
-        sx={{ gap: 2 }}
-      >
-        <Box sx={{ flexGrow: 1 }}>
-          <Button
-              color='inherit'
-              href="/"
-              onClick={() => handleSelect('home')}
-              sx={{
-                fontWeight: selected === 'home' ? 'bold' : 'normal',
-              }}
-            >
-              Home
-          </Button>
-          <Button 
-              color='inherit' 
-              href="/about"
-              onClick={() => handleSelect('about')}
-              sx={{
-                fontWeight: selected === 'about' ? 'bold' : 'normal',
-              }}
-            >
-              About
-          </Button>
-          <Button 
-              color='inherit' 
-              href="/events"
-              onClick={() => handleSelect('events')}
-              sx={{
-                fontWeight: selected === 'events' ? 'bold' : 'normal',
-              }}
-            >
-              Events
-          </Button>
-          <Button 
-              color='inherit' 
-              href="/media"
-              onClick={() => handleSelect('media')}
-              sx={{
-                fontWeight: selected === 'media' ? 'bold' : 'normal',
-              }}
-            >
-              Media
-          </Button>
-          <Button 
-              color='inherit' 
-              href="/portfolio"
-              onClick={() => handleSelect('portfolio')}
-              sx={{
-                fontWeight: selected === 'portfolio' ? 'bold' : 'normal',
-              }}
-            >
-              Portfolio
-          </Button>
-        </Box>
+  const navigationItems = [
+    { id: 'home', label: 'Home', href: '/' },
+    { id: 'about', label: 'About', href: '/about' },
+    { id: 'events', label: 'Events', href: '/events' },
+    { id: 'media', label: 'Media', href: '/media' },
+    { id: 'portfolio', label: 'Portfolio', href: '/portfolio' }
+  ];
 
+  const renderNavigationButtons = () => (
+    <>
+      {navigationItems.map((item) => (
         <Button
-          color="inherit"
-          onClick={handleClick}
-          endIcon={<KeyboardArrowDown />}
-        >
-          Contact Me
-        </Button>
-        <Menu
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
+          key={item.id}
+          color='inherit'
+          href={item.href}
+          onClick={() => handleSelect(item.id)}
           sx={{
-            '& .MuiPaper-root': {
-              minWidth: 180,
-              mt: 1
-            }
+            fontWeight: selected === item.id ? 'bold' : 'normal',
           }}
         >
-          {socialLinks.map((social) => (
-            <MenuItem
-              key={social.name}
-              onClick={() => handleSocialClick(social.url)}
+          {item.label}
+        </Button>
+      ))}
+    </>
+  );
+
+  const renderDrawerContent = () => (
+    <Box sx={{ width: 280, height: '100%' }}>
+      <Box sx={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'space-between',
+        p: 2,
+        borderBottom: 1,
+        borderColor: 'divider'
+      }}>
+        <Typography variant="h6" component="div">
+          Navigation
+        </Typography>
+        <IconButton onClick={toggleDrawer}>
+          <CloseIcon />
+        </IconButton>
+      </Box>
+      
+      <List>
+        {navigationItems.map((item) => (
+          <ListItem key={item.id} disablePadding>
+            <ListItemButton
+              component="a"
+              href={item.href}
+              onClick={() => handleSelect(item.id)}
               sx={{
+                fontWeight: selected === item.id ? 'bold' : 'normal',
+                backgroundColor: selected === item.id ? 'rgba(201, 55, 71, 0.1)' : 'transparent',
                 '&:hover': {
-                  backgroundColor: 'rgba(0, 0, 0, 0.04)'
+                  backgroundColor: 'rgba(201, 55, 71, 0.05)',
                 }
               }}
             >
-              <ListItemIcon sx={{ minWidth: 36 }}>
-                {social.icon}
-              </ListItemIcon>
-              <ListItemText primary={social.name} />
-            </MenuItem>
+              <ListItemText 
+                primary={item.label}
+                sx={{
+                  '& .MuiTypography-root': {
+                    fontWeight: selected === item.id ? 'bold' : 'normal',
+                  }
+                }}
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      
+      <Divider sx={{ my: 2 }} />
+      
+      <Box sx={{ px: 2 }}>
+        <Typography variant="subtitle2" sx={{ mb: 1, color: 'text.secondary' }}>
+          Contact Me
+        </Typography>
+        <List dense>
+          {socialLinks.map((social) => (
+            <ListItem key={social.name} disablePadding>
+              <ListItemButton
+                onClick={() => handleSocialClick(social.url)}
+                sx={{
+                  borderRadius: 1,
+                  '&:hover': {
+                    backgroundColor: 'rgba(201, 55, 71, 0.05)',
+                  }
+                }}
+              >
+                <ListItemIcon sx={{ minWidth: 36 }}>
+                  {social.icon}
+                </ListItemIcon>
+                <ListItemText primary={social.name} />
+              </ListItemButton>
+            </ListItem>
           ))}
-        </Menu>
-      </Toolbar>
-    </AppBar>
+        </List>
+      </Box>
+    </Box>
+  );
+
+  return (
+    <>
+      <AppBar 
+        position='sticky' 
+        color='primary'
+        sx={{ top: 0, width:'100vw', left: 0 }}
+      >
+        <Toolbar sx={{ gap: 2 }}>
+          {!isFullscreen && (
+            <IconButton
+              color="inherit"
+              edge="start"
+              onClick={toggleDrawer}
+              sx={{ mr: 2, display: { lg: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+          )}
+
+          <Box sx={{ flexGrow: 1 }}>
+            <Box sx={{ 
+              display: isFullscreen ? 'block' : { xs: 'none', lg: 'block' }
+            }}>
+              {renderNavigationButtons()}
+            </Box>
+          </Box>
+
+          <Button
+            color="inherit"
+            onClick={handleClick}
+            endIcon={<KeyboardArrowDown />}
+          >
+            Contact Me
+          </Button>
+          <Menu
+            anchorEl={anchorEl}
+            open={open}
+            onClose={handleClose}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'right',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'right',
+            }}
+            sx={{
+              '& .MuiPaper-root': {
+                minWidth: 180,
+                mt: 1
+              }
+            }}
+          >
+            {socialLinks.map((social) => (
+              <MenuItem
+                key={social.name}
+                onClick={() => handleSocialClick(social.url)}
+                sx={{
+                  '&:hover': {
+                    backgroundColor: 'rgba(0, 0, 0, 0.04)'
+                  }
+                }}
+              >
+                <ListItemIcon sx={{ minWidth: 36 }}>
+                  {social.icon}
+                </ListItemIcon>
+                <ListItemText primary={social.name} />
+              </MenuItem>
+            ))}
+          </Menu>
+        </Toolbar>
+      </AppBar>
+
+      <Drawer
+        anchor="left"
+        open={drawerOpen && !isFullscreen}
+        onClose={toggleDrawer}
+        sx={{
+          display: isFullscreen ? 'none' : { xs: 'block', lg: 'none' },
+          '& .MuiDrawer-paper': {
+            boxSizing: 'border-box',
+            width: 280,
+          },
+        }}
+      >
+        {renderDrawerContent()}
+      </Drawer>
+    </>
   );
 }
 
