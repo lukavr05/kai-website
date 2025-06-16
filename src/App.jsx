@@ -6,9 +6,7 @@ import Home from './pages/Home';
 function App() {
   return (
     <>
-      <div className="navbar">
-        <Navbar />
-      </div>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
