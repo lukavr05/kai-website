@@ -4,12 +4,15 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import '@fontsource/caprasimo'
 import App from './App.jsx'
 import theme from './theme.jsx';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
   </StrictMode>
 );
