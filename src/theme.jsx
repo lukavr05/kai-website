@@ -20,6 +20,11 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: '"Caprasimo", serif',
+
+    body1: {
+      fontFamily: '"Playfair Display", serif',
+      fontWeight: 900,
+    },
   },
 });
 export default theme;
