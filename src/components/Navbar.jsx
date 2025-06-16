@@ -233,6 +233,14 @@ function Navbar() {
             color="inherit"
             onClick={handleClick}
             endIcon={<KeyboardArrowDown />}
+            sx={{
+              height: "100%",
+              borderRadius: 0,
+              minHeight: "64px",
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              },
+            }}
           >
             Contact Me
           </Button>
