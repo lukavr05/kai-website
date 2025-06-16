@@ -14,8 +14,8 @@ const theme = createTheme({
       paper: '#ffffff',   
     },
     text: {
-      primary: '#000000',
-      secondary: '#555555',
+      primary: '#222222',
+      secondary: '#666666',
     },
   },
   typography: {
@@ -23,7 +23,7 @@ const theme = createTheme({
 
     body1: {
       fontFamily: '"Playfair Display", serif',
-      fontWeight: 900,
+      fontWeight: 600,
     },
   },
 });

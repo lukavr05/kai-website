@@ -161,7 +161,7 @@ function Navbar() {
                 primary={item.label}
                 sx={{
                   '& .MuiTypography-root': {
-                    fontWeight: selected === item.id ? 'bold' : 'light',
+                    fontWeight: selected === item.id ? 'bold' : 'normal',
                     color: 'text.secondary'
                   }
                 }}
