@@ -8,6 +8,7 @@
         "@emotion/styled": "^11.14.0",
         "@fontsource/caprasimo": "^5.2.6",
         "@fontsource/capriola": "^5.2.6",
+        "@fontsource/playfair-display": "^5.2.6",
         "@mui/icons-material": "^7.1.1",
         "@mui/material": "^7.1.1",
         "react": "^19.1.0",
@@ -165,6 +166,8 @@
     "@fontsource/caprasimo": ["@fontsource/caprasimo@5.2.6", "", {}, "sha512-fzQ5ZsvNiqdDtsgQPBqyzM0OA2nu1nW/I1QoVOKGvDWavRHCRrND1y9OTKXOFZ/pOFlKmPahrx+MaDrL5T5fVA=="],
 
     "@fontsource/capriola": ["@fontsource/capriola@5.2.6", "", {}, "sha512-wPEGOODtPpRzt3LAEx4o0CAEcT6alxoePBQG/JBq0e8GlN3B/pd+pGi06domvSBNRRImaGoLSkDWeuktUgljpQ=="],
+
+    "@fontsource/playfair-display": ["@fontsource/playfair-display@5.2.6", "", {}, "sha512-hWfFm2j+Dlg+UwabNJu5vi45otmLSG64hUzNFJ8pIDBgqWBviEPpVaDIZWHm2RYyIxhg9YXTPsZWdpvsu7fkqQ=="],
 
     "@humanfs/core": ["@humanfs/core@0.19.1", "", {}, "sha512-5DyQ4+1JEUzejeK1JGICcideyfUbGixgS9jNgex5nqkW+cY7WZhxBigmieN5Qnw9ZosSNVC9KQKyb+GUaGyKUA=="],
 
