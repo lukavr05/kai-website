@@ -13,7 +13,9 @@ function Home() {
           marginTop: '5%',
           marginLeft: '10%',
           marginRight: '10%',
-          }}
+          // backgroundColor: 'white',
+          // borderRadius: '4px',
+        }}
         >
           <Container maxWidth="md">
             <Box>
@@ -21,9 +23,9 @@ function Home() {
                 Welcome
               </Typography>
               <Typography variant="body1">
-                  I'm a music producer with a passion for crafting unique, genre-blending sounds. This portfolio showcases a curated selection of my original tracks, collaborations, and production projects. Whether you're looking for atmospheric soundscapes, hard-hitting beats, or custom compositions, you'll find a bit of everything here. 
+                  I'm a music producer with a passion for crafting unique, genre-blending sounds. This portfolio showcases a curated selection of my original tracks, collaborations, and production projects. 
         
-                Feel free to explore my work, check out my latest releases, and get in touch if you'd like to collaborate or license music.
+                Feel free to explore my work, check out my latest releases, and get in touch if you'd like to collaborate.
               </Typography>
             </Box>
           </Container>
