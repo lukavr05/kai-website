@@ -19,7 +19,7 @@ function App() {
         <Route path="/portfolio" element={<Portfolio />} />
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
