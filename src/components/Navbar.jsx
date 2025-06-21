@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -26,15 +27,25 @@ import {
 } from '@mui/icons-material';
 
 function Navbar() {
-  const [selected, setSelected] = useState(() => {
-    return localStorage.getItem('selectedNav') || 'home';
-  });
-
+  const location = useLocation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   
   const open = Boolean(anchorEl);
+
+  // Determine selected nav based on current route
+  const getSelectedNav = () => {
+    const path = location.pathname;
+    if (path === '/') return 'home';
+    if (path === '/about') return 'about';
+    if (path === '/events') return 'events';
+    if (path === '/media') return 'media';
+    if (path === '/portfolio') return 'portfolio';
+    return 'home';
+  };
+
+  const selected = getSelectedNav();
 
   // check if browser is in fullscreen mode
   useEffect(() => {
@@ -46,11 +57,9 @@ function Navbar() {
     return () => document.removeEventListener('fullscreenchange', checkFullscreen);
   }, []);
 
-  const handleSelect = (id) => {
-    setSelected(id);
-    localStorage.setItem('selectedNav', id)
+  const handleDrawerClose = () => {
     setDrawerOpen(false); 
-  }
+  };
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -100,15 +109,16 @@ function Navbar() {
       {navigationItems.map((item) => (
         <Button
           key={item.id}
+          component={Link}
+          to={item.href}
           color='inherit'
-          href={item.href}
-          onClick={() => handleSelect(item.id)}
           sx={{
             fontWeight: selected === item.id ? 'bold' : 'normal',
             height: '100%',
             borderRadius: 0,
             minHeight: '64px',
             px: 2,
+            textDecoration: 'none',
             '&:hover': {
               backgroundColor: 'rgba(255, 255, 255, 0.1)',
             },
@@ -146,12 +156,13 @@ function Navbar() {
         {navigationItems.map((item) => (
           <ListItem key={item.id} disablePadding>
             <ListItemButton
-              component="a"
-              href={item.href}
-              onClick={() => handleSelect(item.id)}
+              component={Link}
+              to={item.href}
+              onClick={handleDrawerClose}
               sx={{
                 fontWeight: selected === item.id ? 'bold' : 'normal',
                 backgroundColor: selected === item.id ? 'rgba(201, 55, 71, 0.1)' : 'transparent',
+                textDecoration: 'none',
                 '&:hover': {
                   backgroundColor: 'rgba(201, 55, 71, 0.05)',
                 }
