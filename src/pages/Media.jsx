@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 
 function Media() {
   return (
