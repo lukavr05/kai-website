@@ -12,7 +12,6 @@ import {
   ImageListItem,
   useMediaQuery,
   useTheme,
-  Button,
   Dialog,
   DialogContent,
   IconButton,
@@ -47,7 +46,7 @@ Yanniguitarist led the project and creative ideas, playing the majority of the g
 Within this project I worked as the producer and bassist. When recording, mixing and mastering I drew inspiration from bands such as Metallica and Slipknot using some of their tracks as reference.`,
       videos: [
         {
-          id: 'DMuco8bgFTw', // Replace with actual YouTube video IDs
+          id: 'DMuco8bgFTw',
           title: 'ElijaMM',
           description: ''
         },
@@ -62,8 +61,7 @@ Within this project I worked as the producer and bassist. When recording, mixing
           description: ''
         }
       ],
-      photos: [
-      ],
+      photos: [],
       tags: ['Metal', 'Instrumental', 'Collaboration', 'Producer', 'Bassist']
     },
     {
@@ -93,8 +91,7 @@ The most enjoyable part of this project was the necessity of creativity to find 
           description: ''
         }
       ],
-      photos: [
-      ],
+      photos: [],
       tags: ['Soundtrack', 'Nordic Folk', 'Solo Project', 'Film Music', 'Creative Process']
     },
     {
@@ -202,7 +199,7 @@ The most enjoyable part of this project was the necessity of creativity to find 
   );
 
   return (
-    <Box sx={{ minHeight: '100vh', py: 6 }}>
+    <Box sx={{ minHeight: '100vh', py: 8, backgroundColor: 'rgba(139, 69, 19, 0.02)' }}>
       <Container maxWidth="lg">
         {/* Header */}
         <Box sx={{ mb: 6 }}>
@@ -313,13 +310,16 @@ The most enjoyable part of this project was the necessity of creativity to find 
                 ))}
               </Grid>
 
-              <Divider sx={{ my: 3 }} />
-
-              {/* Photos Section */}
-              <Typography variant="h5" sx={{ mb: 2, color: project.color }}>
-                Photos
-              </Typography>
-              {renderPhotoGallery(project.photos)}
+              {project.photos.length > 0 && (
+                <>
+                  <Divider sx={{ my: 3 }} />
+                  {/* Photos Section */}
+                  <Typography variant="h5" sx={{ mb: 2, color: project.color }}>
+                    Photos
+                  </Typography>
+                  {renderPhotoGallery(project.photos)}
+                </>
+              )}
 
             </Paper>
           </Box>
@@ -369,7 +369,7 @@ The most enjoyable part of this project was the necessity of creativity to find 
                       top: 0,
                       left: 0,
                       width: '100%',
-                      height: '100%'
+      height: '100%'
                     }}
                   />
                 </Box>
@@ -386,6 +386,25 @@ The most enjoyable part of this project was the necessity of creativity to find 
           </DialogContent>
         </Dialog>
 
+        {/* Call to Action */}
+        <Box 
+          sx={{ 
+            mt: 6, 
+            p: 4, 
+            textAlign: 'center',
+            background: 'linear-gradient(135deg, #c93747 0%, #c97137 100%)',
+            borderRadius: 3,
+            color: 'white'
+          }}
+        >
+          <Typography variant="h5" sx={{ mb: 2, fontWeight: 'bold' }}>
+            Interested in Collaborating?
+          </Typography>
+          <Typography variant="body1" sx={{ opacity: 0.9 }}>
+            Whether you need production, instrumentation, or creative collaboration, 
+            I'm here to help bring your musical vision to life.
+          </Typography>
+        </Box>
       </Container>
     </Box>
   );

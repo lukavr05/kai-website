@@ -1,6 +1,6 @@
 import './App.css';
+import { Box } from '@mui/material';
 import Navbar from './components/Navbar';
-import {Routes, Route} from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Media from './pages/Media';
@@ -10,12 +10,20 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/media" element={<Media />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-      </Routes>
+        <Box>
+          <Box id="home">
+            <Home />
+          </Box>
+          <Box id="about">
+            <About />
+          </Box>
+          <Box id="media">
+            <Media />
+          </Box>
+          <Box id="portfolio">
+            <Portfolio />
+          </Box>
+        </Box>
     </>
   );
 }

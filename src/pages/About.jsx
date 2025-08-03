@@ -13,7 +13,7 @@ function About() {
   ];
 
   return (
-    <Box sx={{ minHeight: '100vh', py: 6 }}>
+    <Box sx={{ minHeight: '100vh', py: 8, backgroundColor: 'rgba(201, 55, 71, 0.02)' }}>
       <Container maxWidth="md">
         {/* Header */}
         <Box sx={{ mb: 6 }}>

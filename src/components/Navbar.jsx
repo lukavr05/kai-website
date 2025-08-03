@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import {
   AppBar,
   Toolbar,
@@ -27,24 +26,12 @@ import {
 } from '@mui/icons-material';
 
 function Navbar() {
-  const location = useLocation();
   const [anchorEl, setAnchorEl] = useState(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
   
   const open = Boolean(anchorEl);
-
-  // Determine selected nav based on current route
-  const getSelectedNav = () => {
-    const path = location.pathname;
-    if (path === '/') return 'home';
-    if (path === '/about') return 'about';
-    if (path === '/media') return 'media';
-    if (path === '/portfolio') return 'portfolio';
-    return 'home';
-  };
-
-  const selected = getSelectedNav();
 
   // check if browser is in fullscreen mode
   useEffect(() => {
@@ -54,6 +41,25 @@ function Navbar() {
 
     document.addEventListener('fullscreenchange', checkFullscreen);
     return () => document.removeEventListener('fullscreenchange', checkFullscreen);
+  }, []);
+
+  // Track active section based on scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'media', 'portfolio'];
+      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = document.getElementById(sections[i]);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleDrawerClose = () => {
@@ -75,6 +81,17 @@ function Navbar() {
 
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
+  };
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+    handleDrawerClose();
   };
 
   const socialLinks = [
@@ -100,11 +117,10 @@ function Navbar() {
   ];
 
   const navigationItems = [
-    { id: 'home', label: 'Home', href: '/' },
-    { id: 'about', label: 'About', href: '/about' },
-    { id: 'media', label: 'Media', href: '/media' },
-    { id: 'portfolio', label: 'Portfolio', href: '/portfolio' },
-    { id: 'intheworks', label: 'In The Works', href: '/intheworks' }
+    { id: 'home', label: 'Home' },
+    { id: 'about', label: 'About' },
+    { id: 'media', label: 'Media' },
+    { id: 'portfolio', label: 'Portfolio' }
   ];
 
   const renderNavigationButtons = () => (
@@ -112,20 +128,19 @@ function Navbar() {
       {navigationItems.map((item) => (
         <Button
           key={item.id}
-          component={Link}
-          to={item.href}
+          onClick={() => scrollToSection(item.id)}
           color='inherit'
           sx={{
-            fontWeight: selected === item.id ? 'bold' : 'normal',
+            fontWeight: activeSection === item.id ? 'bold' : 'normal',
             height: '100%',
             borderRadius: 0,
             minHeight: '64px',
             px: 2,
-            textDecoration: 'none',
+            cursor: 'pointer',
             '&:hover': {
               backgroundColor: 'rgba(255, 255, 255, 0.1)',
             },
-            ...(selected === item.id && {
+            ...(activeSection === item.id && {
               backgroundColor: 'rgba(255, 255, 255, 0.15)',
               borderBottom: '3px solid white',
             })
@@ -159,13 +174,10 @@ function Navbar() {
         {navigationItems.map((item) => (
           <ListItem key={item.id} disablePadding>
             <ListItemButton
-              component={Link}
-              to={item.href}
-              onClick={handleDrawerClose}
+              onClick={() => scrollToSection(item.id)}
               sx={{
-                fontWeight: selected === item.id ? 'bold' : 'normal',
-                backgroundColor: selected === item.id ? 'rgba(201, 55, 71, 0.1)' : 'transparent',
-                textDecoration: 'none',
+                fontWeight: activeSection === item.id ? 'bold' : 'normal',
+                backgroundColor: activeSection === item.id ? 'rgba(201, 55, 71, 0.1)' : 'transparent',
                 '&:hover': {
                   backgroundColor: 'rgba(201, 55, 71, 0.05)',
                 }
@@ -175,7 +187,7 @@ function Navbar() {
                 primary={item.label}
                 sx={{
                   '& .MuiTypography-root': {
-                    fontWeight: selected === item.id ? 'bold' : 'normal',
+                    fontWeight: activeSection === item.id ? 'bold' : 'normal',
                     color: 'text.secondary'
                   }
                 }}
@@ -219,9 +231,9 @@ function Navbar() {
   return (
     <>
       <AppBar 
-        position='sticky' 
+        position='fixed' 
         color='primary'
-        sx={{ top: 0, width:'100vw', left: 0 }}
+        sx={{ top: 0, width:'100vw', left: 0, zIndex: 1300 }}
       >
         <Toolbar sx={{ gap: 2 }}>
           {!isFullscreen && (

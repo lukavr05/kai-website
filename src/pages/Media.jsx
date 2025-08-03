@@ -65,7 +65,7 @@ function Media() {
       cols: 1,
     },
     {
-      img: 'imageskai-ep-2.jpeg',
+      img: 'images/kai-ep-2.jpeg',
       title: '',
       rows: 2,
       cols: 1,
@@ -87,7 +87,7 @@ function Media() {
   };
 
   return (
-    <Box sx={{ minHeight: '100vh', py: 6 }}>
+    <Box sx={{ minHeight: '100vh', py: 8, backgroundColor: 'rgba(201, 113, 55, 0.02)' }}>
       <Container maxWidth="lg">
         {/* Header */}
         <Box sx={{ mb: 6 }}>
@@ -103,6 +103,16 @@ function Media() {
             }}
           >
             Media
+          </Typography>
+          <Typography 
+            variant="h6" 
+            sx={{ 
+              color: 'text.secondary',
+              fontFamily: '"Playfair Display", serif',
+              mb: 4
+            }}
+          >
+            Behind the scenes, live performances, and studio moments
           </Typography>
         </Box>
 
@@ -197,7 +207,6 @@ function Media() {
             )}
           </DialogContent>
         </Dialog>
-
       </Container>
     </Box>
   );
