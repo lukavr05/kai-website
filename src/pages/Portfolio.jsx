@@ -83,27 +83,24 @@ The aim was to create memorable music using traditional nordic folk instrumentat
 The most enjoyable part of this project was the necessity of creativity to find alternatives to traditional instrumentation. A good example being the use of drum sticks as replacement for percussive bone instrumentation.`,
       videos: [
         {
-          id: '',
-          title: 'The Nokken - Main Theme',
-          description: 'Haunting Nordic folk-inspired soundtrack'
+          id: 'gaHH0gnre5I',
+          title: 'The Nokken Intro',
+          description: ''
         },
         {
-          id: 'dQw4w9WgXcQ',
-          title: 'Creative Process - Traditional Instruments',
-          description: 'Exploring Nordic folk instrumentation techniques'
+          id: '2_4Xdjz-za8',
+          title: 'The Nokken Outro',
+          description: ''
         }
       ],
       photos: [
-        'images/kai-1.jpeg',
-        'images/sc-live-1.jpeg',
-        'images/sc-live-2.jpeg'
       ],
       tags: ['Soundtrack', 'Nordic Folk', 'Solo Project', 'Film Music', 'Creative Process']
     },
     {
       id: 'stone-compass',
       title: 'Stone Compass',
-      subtitle: 'Collaborative Live Performances',
+      subtitle: 'Collaborative Live Performance',
       icon: <MusicNote />,
       color: '#8b4513',
       description: `Stone Compass represents my collaborative work with my best mate, creating atmospheric indie rock that blends various influences. These live performances showcase our chemistry as musicians and our ability to connect with audiences through our shared musical vision.`,
@@ -117,7 +114,8 @@ The most enjoyable part of this project was the necessity of creativity to find 
       photos: [
         'images/sc-live-1.jpeg',
         'images/sc-live-2.jpeg',
-        'images/sc-live-3.jpeg'
+        'images/sc-live-3.jpeg',
+        'images/kai-1.jpeg'
       ],
       tags: ['Live Performance', 'Collaboration', 'Indie Rock', 'Atmospheric']
     }

@@ -2,7 +2,6 @@ import {
   Box, 
   Typography, 
   Container, 
-  Chip, 
   Divider
 } from "@mui/material";
 
@@ -57,34 +56,60 @@ function About() {
             I also enjoy river fishing and reading fantasy novels. If I could tell you one thing about me 
             it's that I want to help people bring their ideas into the world so that they can be shared.
           </Typography>
-          <Typography>
-            Education 
+        </Box>
 
-By August I will have a degree in music production from the Academy of contemporary music where I have worked alongside others to achieve project goals, fit briefs and composing/writing, recording, mixing and mastering songs.
-Next I will be working towards my masters.
-Prior to this I studied music performance and music production at Strodes college for 2 years. 
-I also have experience playing guitar and playing in a live band rehearsal or live context.
+        <Divider sx={{ my: 4 }} />
 
-Skills 
-Able to prioritise the clients desires and work alongside their creative vision
-Well versed in the DAW logic Pro
-Experienced collaborator able to communicate my needs
-Ability to listen to others needs and compromise
-understanding of mixing and mastering techniques and styles
-Understanding of studio recording 
-Ability to take on board criticism 
-Experienced both recording musicians and being recorded myself - insight into both sides so I am able to be more understanding
-Can play in parts where necessary such as bass or guitar parts 
-Can program instruments 
-Currently specialised in instrumental mixing and mastering
-Reliable
-Encouraging 
+        {/* Education */}
+        <Box sx={{ mb: 6 }}>
+          <Typography variant="h4" sx={{ mb: 3, color: 'primary.main' }}>
+            Education
+          </Typography>
+          <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
+            By August I will have a degree in music production from the Academy of Contemporary Music where I have worked 
+            alongside others to achieve project goals, fit briefs and composing/writing, recording, mixing and mastering songs. 
+            Next I will be working towards my Masters Degree.
+          </Typography>
+          <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
+            Prior to this I studied music performance and music production at Strodes College for 2 years. 
+            I also have experience playing guitar and playing in a live band rehearsal or live context.
+          </Typography>
+        </Box>
 
+        <Divider sx={{ my: 4 }} />
 
+        {/* Skills */}
+        <Box sx={{ mb: 6 }}>
+          <Typography variant="h4" sx={{ mb: 3, color: 'primary.main' }}>
+            Skills
+          </Typography>
+          <Box sx={{ mb: 3 }}>
+            <Typography variant="body1" component="ul" sx={{ lineHeight: 1.8, pl: 2 }}>
+              <li>Able to prioritise the client's desires and work alongside their creative vision</li>
+              <li>Well versed in the DAW Logic Pro</li>
+              <li>Experienced collaborator able to communicate my needs</li>
+              <li>Ability to listen to others needs and compromise</li>
+              <li>Understanding of mixing and mastering techniques and styles</li>
+              <li>Understanding of studio recording</li>
+              <li>Ability to take on board criticism</li>
+              <li>Experienced both recording musicians and being recorded myself - insight into both sides so I am able to be more understanding</li>
+              <li>Can play in parts where necessary such as bass or guitar parts</li>
+              <li>Can program instruments</li>
+              <li>Currently specialised in instrumental mixing and mastering</li>
+              <li>Reliable and encouraging</li>
+            </Typography>
+          </Box>
+        </Box>
 
-Professional recognition
+        <Divider sx={{ my: 4 }} />
 
-I have been described by colleagues as reliable and adaptable.
+        {/* Professional Recognition */}
+        <Box sx={{ mb: 6 }}>
+          <Typography variant="h4" sx={{ mb: 3, color: 'primary.main' }}>
+            Professional Recognition
+          </Typography>
+          <Typography variant="body1" paragraph sx={{ lineHeight: 1.8 }}>
+            I have been described by colleagues as reliable and adaptable.
           </Typography>
         </Box>
 
@@ -101,12 +126,6 @@ I have been described by colleagues as reliable and adaptable.
                 <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>
                   {artist.name}
                 </Typography>
-                <Chip 
-                  label={artist.genre} 
-                  color="primary" 
-                  variant="outlined"
-                  sx={{ mb: 2 }}
-                />
               </Box>
             ))}
           </Box>

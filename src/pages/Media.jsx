@@ -92,16 +92,6 @@ function Media() {
           >
             Media
           </Typography>
-          <Typography 
-            variant="h6" 
-            sx={{ 
-              color: 'text.secondary',
-              fontFamily: '"Playfair Display", serif',
-              mb: 4
-            }}
-          >
-            Behind the scenes, live performances, and studio moments
-          </Typography>
         </Box>
 
         {/* Masonry Image Gallery */}
