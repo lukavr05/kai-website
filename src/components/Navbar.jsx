@@ -103,7 +103,8 @@ function Navbar() {
     { id: 'home', label: 'Home', href: '/' },
     { id: 'about', label: 'About', href: '/about' },
     { id: 'media', label: 'Media', href: '/media' },
-    { id: 'portfolio', label: 'Portfolio', href: '/portfolio' }
+    { id: 'portfolio', label: 'Portfolio', href: '/portfolio' },
+    { id: 'intheworks', label: 'In The Works', href: '/intheworks' }
   ];
 
   const renderNavigationButtons = () => (

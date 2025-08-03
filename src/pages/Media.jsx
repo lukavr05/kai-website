@@ -59,10 +59,22 @@ function Media() {
       cols: 1,
     },
     {
-      img: 'images.misc-2.jpeg',
+      img: 'images/misc-2.jpeg',
       title: '',
       rows: 2,
       cols: 1,
+    },
+    {
+      img: 'imageskai-ep-2.jpeg',
+      title: '',
+      rows: 2,
+      cols: 1,
+    },
+    {
+      img: 'images/kai-ep-3.jpeg',
+      title: '',
+      rows: 2,
+      cols: 3,
     },
   ];
 
