@@ -62,7 +62,7 @@ Within this project I worked as the producer and bassist. When recording, mixing
         }
       ],
       photos: [],
-      tags: ['Metal', 'Instrumental', 'Collaboration', 'Producer', 'Bassist']
+      tags: ['Metal', 'Collaboration', 'Production', 'Mixing', 'Mastering']
     },
     {
       id: 'the-nokken',
@@ -92,7 +92,7 @@ The most enjoyable part of this project was the necessity of creativity to find 
         }
       ],
       photos: [],
-      tags: ['Soundtrack', 'Nordic Folk', 'Solo Project', 'Film Music', 'Creative Process']
+      tags: ['Soundscape', 'Nordic Folk', 'Solo Project', 'Film Music']
     },
     {
       id: 'stone-compass',
