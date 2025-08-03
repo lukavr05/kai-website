@@ -57,6 +57,35 @@ function About() {
             I also enjoy river fishing and reading fantasy novels. If I could tell you one thing about me 
             it's that I want to help people bring their ideas into the world so that they can be shared.
           </Typography>
+          <Typography>
+            Education 
+
+By August I will have a degree in music production from the Academy of contemporary music where I have worked alongside others to achieve project goals, fit briefs and composing/writing, recording, mixing and mastering songs.
+Next I will be working towards my masters.
+Prior to this I studied music performance and music production at Strodes college for 2 years. 
+I also have experience playing guitar and playing in a live band rehearsal or live context.
+
+Skills 
+Able to prioritise the clients desires and work alongside their creative vision
+Well versed in the DAW logic Pro
+Experienced collaborator able to communicate my needs
+Ability to listen to others needs and compromise
+understanding of mixing and mastering techniques and styles
+Understanding of studio recording 
+Ability to take on board criticism 
+Experienced both recording musicians and being recorded myself - insight into both sides so I am able to be more understanding
+Can play in parts where necessary such as bass or guitar parts 
+Can program instruments 
+Currently specialised in instrumental mixing and mastering
+Reliable
+Encouraging 
+
+
+
+Professional recognition
+
+I have been described by colleagues as reliable and adaptable.
+          </Typography>
         </Box>
 
         <Divider sx={{ my: 4 }} />

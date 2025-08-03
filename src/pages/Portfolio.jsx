@@ -47,25 +47,22 @@ Yanniguitarist led the project and creative ideas, playing the majority of the g
 Within this project I worked as the producer and bassist. When recording, mixing and mastering I drew inspiration from bands such as Metallica and Slipknot using some of their tracks as reference.`,
       videos: [
         {
-          id: 'DMuco8bgFTw?si=ycAdcf6IhPaKXf0i', // Replace with actual YouTube video IDs
+          id: 'DMuco8bgFTw', // Replace with actual YouTube video IDs
           title: 'ElijaMM',
           description: ''
         },
         {
-          id: 'PZWhcxabK6c?si=7rvRjissz0L-f6sB',
+          id: 'PZWhcxabK6c',
           title: 'The 9th Sin',
           description: ''
         },
         {
-          id: 'HaDavI3y8xM?si=RwVLeVI1K_p_Kx58',
+          id: 'HaDavI3y8xM',
           title: 'Vemm 3:19',
           description: ''
         }
       ],
       photos: [
-        'images/kai-ep-1.jpeg',
-        'images/misc-1.jpeg',
-        'images/misc-2.jpeg'
       ],
       tags: ['Metal', 'Instrumental', 'Collaboration', 'Producer', 'Bassist']
     },
@@ -112,7 +109,7 @@ The most enjoyable part of this project was the necessity of creativity to find 
       description: `Stone Compass represents my collaborative work with my best mate, creating atmospheric indie rock that blends various influences. These live performances showcase our chemistry as musicians and our ability to connect with audiences through our shared musical vision.`,
       videos: [
         {
-          id: 'WoPssh0v0yM?si=58zIC6UAfdh36fe9',
+          id: 'WoPssh0v0yM',
           title: 'Stone Compass - Live Performance',
           description: 'Full live set showcasing our collaborative sound'
         }
