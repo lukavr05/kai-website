@@ -386,25 +386,6 @@ The most enjoyable part of this project was the necessity of creativity to find 
           </DialogContent>
         </Dialog>
 
-        {/* Call to Action */}
-        <Box 
-          sx={{ 
-            mt: 6, 
-            p: 4, 
-            textAlign: 'center',
-            background: 'linear-gradient(135deg, #c93747 0%, #c97137 100%)',
-            borderRadius: 3,
-            color: 'white'
-          }}
-        >
-          <Typography variant="h5" sx={{ mb: 2, fontWeight: 'bold' }}>
-            Interested in Collaborating?
-          </Typography>
-          <Typography variant="body1" sx={{ opacity: 0.9 }}>
-            Whether you need production, instrumentation, or creative collaboration, 
-            I'm here to help bring your musical vision to life.
-          </Typography>
-        </Box>
       </Container>
     </Box>
   );
